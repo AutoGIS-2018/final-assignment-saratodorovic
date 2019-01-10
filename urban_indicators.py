@@ -1,5 +1,19 @@
-# Create geodataframes
 def urban_gdf(placenames):
+    """
+    Function for converting temperature in Kelvins to Celsius or Fahrenheit.
+
+    Parameters
+    ----------
+    tempK: <numerical>
+        Temperature in Kelvins
+    convertTo: <str>
+        Target temperature that can be either Celsius ('C') or Fahrenheit ('F'). Supported values: 'C' | 'F'
+
+    Returns
+    -------
+    <float>
+        Converted temperature.
+    """
     gdf = ox.gdf_from_places(placenames)
     return gdf
 
@@ -19,7 +33,7 @@ def urban_getNetwork(placenames):
     return places_graph 
 
 # Function to visualise the street networks for a given list of placenames            
-def urban_visNetwork(placenames):
+def urban_visNetwork(placenames, nwtype):
     # For each place in a list of placenames
     for place in placenames:
         
@@ -27,7 +41,7 @@ def urban_visNetwork(placenames):
         places = urban_getNetwork(placenames)
         
         # Create the graphs
-        graph = ox.graph_from_place(place, network_type = 'drive')
+        graph = ox.graph_from_place(place, network_type = nwtype)
         
         # Print the placename for each graph
         print(graph)
@@ -66,3 +80,4 @@ def urban_polarPlot(placenames):
         ax.set_title(place, y=1.1)
         plt.show()
         
+
