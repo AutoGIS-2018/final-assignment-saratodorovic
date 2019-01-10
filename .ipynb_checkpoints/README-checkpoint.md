@@ -1,6 +1,4 @@
-# Final Assignment  
-
-**Will be handed in a bit late from deadline!**
+# Final Assignment
 
 Read the final assignment instructions from the [https://autogis.github.io](https://automating-gis-processes.github.io/2018/lessons/FA/final-assignment.html).
 
