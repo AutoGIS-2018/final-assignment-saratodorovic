@@ -1,31 +1,48 @@
+# Function to get a geodataframe from a list of placenames
 def urban_gdf(placenames):
     """
-    Function for converting temperature in Kelvins to Celsius or Fahrenheit.
+    Function for downloading a geodataframe from OSM from a list of places.
 
     Parameters
     ----------
-    tempK: <numerical>
-        Temperature in Kelvins
-    convertTo: <str>
-        Target temperature that can be either Celsius ('C') or Fahrenheit ('F'). Supported values: 'C' | 'F'
-
+    placenames: <list>
+        List of places.
     Returns
     -------
-    <float>
-        Converted temperature.
-    """
+    <geodataframe>
+        Geodataframe containing geometry of the places.
+    """ 
+    # Using the function:
+    # Fetch geodataframe from OSM
     gdf = ox.gdf_from_places(placenames)
+    # Return geodataframe
     return gdf
 
 # Function to download the networks for a given list of placenames
-def urban_getNetwork(placenames):
+def urban_getNetwork(placenames, nwtype):
+    """
+    Function for downloading networks as a list of graphs from OSM for a given list of place names
+
+    Parameters
+    ----------
+    placenames: <list>
+        List of places.
+    nwtype: <string>
+        Defines the network type that is downloaded from OSM.
+    Returns
+    -------
+    <list>
+        List containing graphs fetched from OSM.
+    """ 
+    # Using the function: 
+    
     # Empty list for the graphs that will be downloaded
     places_graph = []
     
     # For each place in the list of given placenames,
     for place in placenames:
-        # Fetch the graph with the network type of driveable roads only
-        graph = ox.graph_from_place(place, network_type = 'drive')
+        # Fetch the graph with the network type of choice
+        graph = ox.graph_from_place(place, network_type = nwtype)
         # Add to the list
         places_graph.append(graph)
         
