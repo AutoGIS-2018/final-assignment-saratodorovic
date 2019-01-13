@@ -1,6 +1,6 @@
 # Final Assignment  
 
-**Will be handed in a bit late from deadline!**
+*Handed in for evaluation 13.1.2019*
 
 Read the final assignment instructions from the [https://autogis.github.io](https://automating-gis-processes.github.io/2018/lessons/FA/final-assignment.html).
 
